@@ -18,3 +18,4 @@ Redis = redis.StrictRedis(host='192.168.113.1', port=6379, db=0)
 
 camSettings = {}
 image_path = '/mnt/data/images'
+Cams = []

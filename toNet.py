@@ -7,7 +7,7 @@ import os
 import numpy as np
 from datetime import datetime
 from createlist import frames
-from settings import Nodes, camSettings, image_path
+from settings import Nodes, camSettings, image_path, Cams
 
 
 def onImg(data):
@@ -38,7 +38,7 @@ for dev in devs:
     print('-----------------')
 N = 0
 
-Cams = []
+
 devlist = ['RM01 -B325', 'RM01 -B325']
 for dev in devs:
     info = getInfo(dev)
