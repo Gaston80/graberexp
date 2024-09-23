@@ -1,0 +1,17 @@
+установить на хост машине MvCamCtrlSDK_Runtime-4.3.0_x86_64_20231225.deb из папки inst
+на запрос пути просто нажать энтер
+там сдк и драйвера, потому в докере устанавливать бессмыленно
+в docker-compose.yaml прописать:
+    privileged: true
+    volumes:
+        - /opt/MVS:/opt/MVS
+что бы контейнер мог использовать эти драйвера и сдк
+
+sudo apt install git
+git config --global credential.helper store
+git clone https://gitlab.lislab.tech/gaston/graberexp.git
+sudo apt install curl
+curl -fsSL https://get.docker.com -o install-docker.sh
+cat install-docker.sh
+sh install-docker.sh --dry-run
+sudo sh install-docker.sh

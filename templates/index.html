@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контроль камер</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="header" id="header"></div>
+
+    <div class="LeftBar">
+        <a href="/photos" >Фотографии</a>
+        <table border=2 class="table" id="ImpTable" ></table>
+        <details>
+          <summary>Полная таблица данных</summary>
+          <table border=2 class="table" id="CamTable" ></table>
+        </details>
+    </div>
+
+    <div class="CenterBlock" id="VideoBlocks"><h3>Видеопотоки</h3>
+        <div class="VideoBlock" id="VideoBlock"><h4>Камера</h4>
+            <a href="/video_feed" class="VideoLink" target="_blank">
+            <img src="/video_feed?W=600" class="video"></img></a>
+            <a class="download" href="/img" download>Скачать</a>
+            <a class="nodelist" href="/nodelist" target="_blank">Параметры камеры</a>
+        </div>
+    </div>
+
+    <div class="RightBar">
+        <div class="ControllPanel">
+            <div id="radio"></div>
+            <button onclick="cmdSend('Start')">Старт</button>
+            <button onclick="cmdSend('Stop')">Стоп</button>
+            <button onclick="cmdSend('Exit')">Выход</button><br>
+            <button onclick="cmdSend('Set TriggerMode On')">Триггер Внешний</button>
+            <button onclick="cmdSend('Set TriggerMode Off')">Триггер Внутренний</button>
+            <button onclick="cmdSend('Set DeviceScanType Linescan3D')">3D</button>
+            <button onclick="cmdSend('Set DeviceScanType Areascan')">Картинка</button>
+            <details>
+                <summary>Командный интерфейс</summary>
+                <div id="cmdForm" class="cmdForm">
+                    <input type="text" id="cmd" size="45" >
+                    <button onclick="cmdSend()">Отправить</button>
+                    <div id="resp" class="textblock"></div>
+                </div>
+            </details>
+        </div>
+        <div class="Photos">
+            <details ontoggle="getPhotos()">
+              <summary>Сохраненные фото</summary>
+              <div id="photos"></div><br>
+            </details>
+        </div>
+        <div >
+            <details>
+              <summary>Подробно о камерах</summary>
+              <pre id="info" class="textblock"></pre>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

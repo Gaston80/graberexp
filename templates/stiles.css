@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #fff;
+    color: #000;
+    padding: 20px;
+    text-align: center;
+}
+h1, h2, h3, h4, h5, h6
+{
+    margin: 0;
+}
+.textblock
+{
+    border: 1px solid black;
+    width: 95%;
+    height: 200px;
+    overflow: auto;
+}
+.LeftBar
+{
+    float: left;
+    width: 20%;
+}
+.RightBar
+{
+    flex: 1;
+    width: 30%;
+}
+.CenterBlock
+{
+    border: 1px solid #dddddd;
+    width: 60%;
+    overflow: auto;
+    text-align: center;
+}
+.VideoBlock
+{
+    border: 1px solid #dddddd;
+    width: 97%;
+    overflow: auto;
+    text-align: center;
+}
+.video
+{
+    border: 1px solid green;
+    width: 95%;
+    overflow: auto;
+}
+.table {
+    width: 100%;
+    font-size: 14px;
+    border: 1px solid #dddddd;
+    border-collapse: collapse;
+}
+.table th {
+    font-weight: bold;
+    padding: 1px;
+    background: #efefef;
+    border: 1px solid #dddddd;
+}
+.table td {
+    width: 30%;
+    border: 1px solid #dddddd;
+    padding: 1px;
+}
+.footer
+{
+    position: fixed; /* Фиксированное положение подвала */
+    left: 0; /* Положение относительно левого края */
+    bottom: 0; /* Положение относительно нижнего края */
+    width: 100%; /* Ширина подвала */
+    white-space: nowrap;
+    height: 250px;
+}

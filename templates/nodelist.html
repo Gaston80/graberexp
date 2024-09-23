@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Параметра камеры {{cam}}</title>
+</head>
+<body>
+   {{html|safe}}
+</body>
+</html>
+<script>
+    N = {{N}};
+    function cmdSend(cmd, id='')
+    {
+        chec = 0;
+        if (id)
+        {
+            el = document.getElementById(id);
+            v = el.value;
+            if (v == 'on')
+            {
+                v = 0;
+                chec = 1;
+                if (el.checked) v = 1;
+            }
+            cmd += ' '+v;
+        }
+        url = "/cmd?N="+N+"&cmd="+cmd
+        console.log(cmd)
+        fetch(url)
+            .then(response => response.json())
+            .then(data =>
+            {resp = data.resp; console.log(resp)
+                if (resp == 'Error')
+                {
+                    cmd = 'Get '+id;
+                    url = "/cmd?N="+N+"&cmd="+cmd;
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data =>
+                        {
+                            resp = data.resp;
+                            console.log(resp);
+                            if(chec)
+                            {
+                                if (resp == 'True') el.checked = 1;
+                                else el.checked = 0;
+                            }
+                            else el.value = resp;
+                        })
+                }
+            })
+    }
+
+</script>

@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  cams-grabber:
+    build: .
+    image: cams-grabber
+    container_name: cams-grabber
+    privileged: true
+    restart: always
+    network_mode: 'host'
+    volumes:
+        - .:/code
+        - /opt/MVS:/opt/MVS
+        - /mnt/data/images:/mnt/data/images
